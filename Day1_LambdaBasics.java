@@ -40,6 +40,11 @@ public class Day1_LambdaBasics{
          }       
          System.out.println();
 
+         Comparator<Integer> descComparator = Comparator.nullsLast((a,b)->b-a);
+
+
+         
+
 
          
               
