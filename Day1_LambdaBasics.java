@@ -42,7 +42,8 @@ public class Day1_LambdaBasics{
 
          Comparator<Integer> descComparator = Comparator.nullsLast((a,b)->b-a);
 
-
+         List<Integer> sortedDesc = new ArrayList<>(nums);
+         sortedDesc.sort(descComparator);
          
 
 
