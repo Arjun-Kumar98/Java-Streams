@@ -45,9 +45,7 @@ public class Day1_LambdaBasics{
          List<Integer> sortedDesc = new ArrayList<>(nums);
          sortedDesc.sort(descComparator);
          
-
-
-         
+         Optional<Integer> Firsteven = nums.stream().filter(objects::nonNull).filter(isEven).findFirst();
               
 
     }
