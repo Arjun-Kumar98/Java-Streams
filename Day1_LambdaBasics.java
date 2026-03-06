@@ -4,49 +4,34 @@ import java.util.function.*;
 public class Day1_LambdaBasics{
 
     public static void main(String[] args){
+
+        Runnable task = () -> System.out.println("Running a lambda Runnable");
+
+        task.run();
+
+        Predicate<Integer> isEven = n -> n ! = null && n % 2 == 0;
+
+        if(isEven.test(num)){
+            System.out.println(num+" is even");
+        }
         
-        List<Integer> nums = Arrays.asList(5,2,null,9,2,10,3,null,8);
-        List<String> names = Arrays.asList("Arjun",null,"bob","Alice","alex",null."Bob");
+        Function<Integer,Integer> square = n->n == null ? 0:n*n;
 
-        Predicate<Integer> isEven = n -> n != null && n % 2 == 0;
+        Integer value = 5;
 
-        System.out.println("Even numbers");
-        nums.stream()
-            .filter(Objects::nonNull)
-            .filter(isEven)
-            .forEach(n -> System.out.print(n + ""));
-            System.out.println("\n");
+        System.out.println("Square:" + square.apply(value));
 
-        Function<Integer,Integer> square = n -> n== null?0: n*n;
+        Consumer<String> printer = s -> {
+              if(s!=null){
+                System.out.println("Printing: " +s);
+              }
 
-        System.out.println("Squares (null handled as 0)");
-        nums.stream()
-        .map(square)
-        .forEach(n -> System.out.print(n+" "));
-        System.out.println("\n");
+        };
+        printer.accept("Hello Lambda")
+        
+        Supplier<Integer> randomSupplier = () -> new Random().nextInt(100)+1;
 
-        Consumer<Integer> printValue = n -> 
-         System.out.println("Value:" + (n == null?"null":n));
-
-         System.out.println("Printing using Consumer:");
-         nums.forEach(printValue);
-         System.out.println();
-
-         Supplier<Integer> randomSupplier = ()->new Random().nextInt(100) + 1;
-
-         System.out.println("Random numbers:");
-         for(int i=0;i<3;i++){
-            System.out.println(randomSupplier.get());
-         }       
-         System.out.println();
-
-         Comparator<Integer> descComparator = Comparator.nullsLast((a,b)->b-a);
-
-         List<Integer> sortedDesc = new ArrayList<>(nums);
-         sortedDesc.sort(descComparator);
-         
-         Optional<Integer> Firsteven = nums.stream().filter(objects::nonNull).filter(isEven).findFirst();
-              
+        System.out.println("Random number :" + randomSupplier.get());
 
     }
 }
