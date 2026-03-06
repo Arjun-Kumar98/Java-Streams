@@ -33,5 +33,11 @@ public class Day1_LambdaBasics{
 
         System.out.println("Random number :" + randomSupplier.get());
 
+        List<Integer> numbers = Arrays.asList(5,2,9,1,7);
+
+        numbers.sort((a,b)->b-a);
+
+        System.out.println("sorted numbers (descending): "+numbers);
+
     }
 }
